@@ -1,0 +1,19 @@
+{
+  "name": "scratch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "es-dev-server --app-index index.html --node-resolve --watch --open --base-path src",
+    "start:compatibility": "es-dev-server --compatibility all --app-index index.html --node-resolve --watch --open --base-path src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kito D. Mann (virtua.tech)",
+  "license": "MIT",
+  "dependencies": {
+    "lit-element": "^2.2.1"
+  },
+  "devDependencies": {
+    "es-dev-server": "^1.23.1"
+  }
+}
