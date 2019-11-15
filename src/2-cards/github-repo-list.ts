@@ -1,23 +1,20 @@
 import {css, customElement, html, LitElement, property} from 'lit-element';
 import {RepositoryResults} from './github-model';
+import './repo-card';
+import {card} from './styles';
 
 
 @customElement('virtua-github-repo-list')
 export class GithubRepoList extends LitElement {
 
     static get styles() {
-        return css`
-             .card {
-                  display: block;
-                  border-radius: 4px;
-                  background: #fff;
-                  box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
-                  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
-                  padding: 14px 36px 18px 36px;
-                  cursor: pointer;
-                  margin: 5px;
-             }
-        `;
+        return [
+            card,
+            css`
+                section.card {
+                  padding: 20px;
+                }
+            `];
     }
 
     @property({type: String, reflect: true})
@@ -36,6 +33,7 @@ export class GithubRepoList extends LitElement {
     }
 
     results: RepositoryResults | null = null;
+    errorMsg: string | null = null;
 
     private _query: string | null = null;
 
@@ -46,17 +44,29 @@ export class GithubRepoList extends LitElement {
 
     protected render() {
         return html`
-            <section class='card'>  
-                ${this.results && this.results.total_count > 0 ? this.results.items.map(repository =>
-            html`<div>${repository.name}</div>`) : 'No repositories found.'}
+            <section class='card'>               
+                ${this.errorMsg ? html`Error: ${this.errorMsg}` : null}
+                ${!this.errorMsg ? this.renderCard() : null}
             </section>               
         `;
+    }
+
+    private renderCard() {
+        return this.results && this.results.total_count > 0 ? this.results.items.map(repository =>
+            html` 
+                    <virtua-repo-card .repository='${repository}'></virtua-repo-card>          
+                `) : 'No repositories found.';
     }
 
     private async performQuery() {
         if (this.query) {
             const response = await fetch(`${this.url}?q=${this.query}`);
-            this.results = await response.json();
+            if (response.ok) {
+                this.errorMsg = null;
+                this.results = await response.json();
+            } else {
+                this.errorMsg = `${response.status} ${response.statusText}`;
+            }
             this.requestUpdate();
         } else {
             this.results = null;
