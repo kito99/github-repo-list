@@ -14,6 +14,9 @@ export class GithubRepoViewer extends LitElement {
                 section.card {
                   padding: 20px;
                 }
+                section.header-card {
+                  margin-bottom: 20px;
+                }
                 ::slotted(header) {
                   font-size: 24pt;
                   font-family: Helvetica;
@@ -64,8 +67,8 @@ export class GithubRepoViewer extends LitElement {
 
     private renderHeader() {
         return html`
-        <section class="card"><slot></slot></section>
-        `;
+            <section class="card header-card"><slot></slot></section>
+            `;
     }
 
     private renderCard() {
