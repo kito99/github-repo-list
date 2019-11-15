@@ -14,6 +14,11 @@ export class GithubRepoViewer extends LitElement {
                 section.card {
                   padding: 20px;
                 }
+                ::slotted(header) {
+                  font-size: 24pt;
+                  font-family: Helvetica;
+                  margin-bottom: 10px;                  
+                }
             `];
     }
 
@@ -49,16 +54,23 @@ export class GithubRepoViewer extends LitElement {
 
     protected render() {
         return html`
-            <section class='card'>                  
+            <section class='card'>  
+                ${this.childElementCount > 0 ? this.renderHeader() : null}             
                 ${this.errorMsg ? html`Error: ${this.errorMsg}` : null}
                 ${!this.errorMsg ? this.renderCard() : null}
             </section>               
         `;
     }
 
+    private renderHeader() {
+        return html`
+        <section class="card"><slot></slot></section>
+        `;
+    }
+
     private renderCard() {
         return this.results && this.results.total_count > 0 ? this.results.items.map(repository =>
-                html` 
+            html` 
                     <virtua-repo-card .repository='${repository}'></virtua-repo-card>          
                 `) : 'No repositories found.';
     }
@@ -81,7 +93,6 @@ export class GithubRepoViewer extends LitElement {
     // preserve "this"
     private topicsChangedListener = (event: Event) => this.filter(event);
 
-
     private filter(event: Event) {
         const topics = (event as TopicsChangedEvent).detail;
         let newQuery: string | null = null;
@@ -92,5 +103,4 @@ export class GithubRepoViewer extends LitElement {
         console.log('newQuery', newQuery);
         this.query = newQuery;
     }
-
 }
