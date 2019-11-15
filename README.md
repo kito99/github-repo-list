@@ -35,7 +35,7 @@ as well as other features.
 To run the development server, run:
 
 ```
-npm start
+npm run start
 ```
 
 ## Building
