@@ -4,8 +4,9 @@ import './repo-card';
 import {card} from './styles';
 import {TopicsChangedEvent} from './repo-filter';
 
-@customElement('virtua-github-repo-viewer')
-export class GithubRepoViewer extends LitElement {
+
+@customElement('virtua-github-repo-list')
+export class GithubRepoList extends LitElement {
 
     static get styles() {
         return [
@@ -18,8 +19,8 @@ export class GithubRepoViewer extends LitElement {
                   margin-bottom: 20px;
                 }
                 ::slotted(header) {
-                  font-size: 24pt;
-                  font-family: Helvetica;
+                  font-size: var(--header-font-size, 24pt);
+                  font-family: var(--header-font-family);
                   margin-bottom: 10px;                  
                 }
             `];
