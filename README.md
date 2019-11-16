@@ -3,8 +3,8 @@
 Simple Web Components that display repositories from Github, and can be filtered by Web Components-related topics. 
 Built using [LitElement](https://lit-element.polymer-project.org/) and TypeScript.
 
-Sample application for Kito Mann's Future-proof your Web Apps with Web Components and LitElement 
-[MindMap/Slides](https://www.mindmeister.com/1363423501/presentations-lit-element)  originally presented at 
+Sample application for Kito Mann's _Future-proof your Web Apps with Web Components and LitElement presentation 
+[MindMap/Slides](https://www.mindmeister.com/1363423501/presentations-lit-element) originally presented at 
 [RVAJavaScriptConf 2019](https://www.rvajavascript.com/).
 
 ## Setup
