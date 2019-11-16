@@ -7,6 +7,8 @@ Sample application for Kito Mann's _Future-proof your Web Apps with Web Componen
 [MindMap/Slides](https://www.mindmeister.com/1363423501/presentations-lit-element) originally presented at 
 [RVAJavaScriptConf 2019](https://www.rvajavascript.com/).
 
+![Demo](/demo.gif?raw=true "Github Repo Lister")
+
 ## Setup
 
 First, make sure you have TypeScript installed globally.
