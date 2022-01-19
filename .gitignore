@@ -1,6 +1,11 @@
-node_modules
+# IntelliJ
 .idea
 *.iml
+
+# Eclipse
+.project
+
+# NPM
+node_modules
 src/**/*.js
 src/**/*.js.map
-
