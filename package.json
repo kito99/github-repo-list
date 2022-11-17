@@ -11,7 +11,7 @@
   "author": "Kito D. Mann (virtua.tech)",
   "license": "MIT",
   "dependencies": {
-    "lit-element": "^2.4.0"
+    "lit": "^2.4.1"
   },
   "devDependencies": {
     "es-dev-server": "^1.57.5",

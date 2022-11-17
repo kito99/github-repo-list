@@ -1,11 +1,9 @@
 # virtua-github-repo-list
 
 Simple Web Components that display repositories from Github, and can be filtered by Web Components-related topics. 
-Built using [LitElement](https://lit-element.polymer-project.org/) and TypeScript.
+Built using [Lit](https://lit.dev/) and TypeScript.
 
-Sample application for Kito Mann's _Future-proof your Web Apps with Web Components and LitElement presentation 
-[MindMap/Slides](https://www.mindmeister.com/1363423501/presentations-lit-element) originally presented at 
-[RVAJavaScriptConf 2019](https://www.rvajavascript.com/).
+Sample application for Kito Mann's [Future-proof your Web Apps with Web Components and LitElement presentation](https://kitomann.com/#/sessions/14/future-proof-your-web-apps-with-web-components-and-litelement).
 
 ![Demo](/demo.gif?raw=true "Github Repo Lister")
 
@@ -19,7 +17,7 @@ npm install -g typescript
 
 Next, install the dependencies.
 
-npm install 
+npm install     
 
 ## Development
 

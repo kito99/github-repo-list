@@ -1,4 +1,5 @@
-import {ComplexAttributeConverter, customElement, html, LitElement, property} from "lit-element";
+import {ComplexAttributeConverter, css, html, LitElement} from 'lit';
+import {customElement, property} from 'lit/decorators.js';
 
 export interface TopicsChangedEvent extends CustomEvent {
     /** Selected topics */

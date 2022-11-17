@@ -1,6 +1,6 @@
-import {css, customElement, html, LitElement, property} from 'lit-element';
+import {LitElement, html, css} from 'lit';
+import {customElement, property} from 'lit/decorators.js';
 import {RepositoryResults} from './github-model';
-
 
 @customElement('virtua-github-repo-list')
 export class GithubRepoList extends LitElement {
