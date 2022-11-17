@@ -1,9 +1,9 @@
 import {css, html, LitElement} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
-import {RepositoryResults} from './github-model';
 import './repo-card';
 import {card} from './styles';
 import {TopicsChangedEvent} from './repo-filter';
+import {GithubFetchController} from "./github-fetch-controller";
 
 @customElement('virtua-github-repo-list')
 export class GithubRepoList extends LitElement {
@@ -33,19 +33,18 @@ export class GithubRepoList extends LitElement {
 
     @property({type: String, reflect: true})
     get query(): string | null {
-        return this._query;
+        return this._query
     }
 
     set query(query: string | null) {
         const oldValue = this._query;
         this._query = query;
-        this.performQuery();
         this.requestUpdate('query', oldValue);
+        this.githubController.query = query;
+        this.githubController.performQuery();
     }
 
-    results: RepositoryResults | null = null;
-    errorMsg: string | null = null;
-
+    private githubController = new GithubFetchController(this, this.url)
     private _query: string | null = null;
 
     connectedCallback() {
@@ -59,11 +58,12 @@ export class GithubRepoList extends LitElement {
     }
 
     protected render() {
+        const errorMsg = this.githubController.errorMsg;
         return html`
             <section class='card'>
                 ${this.childElementCount > 0 ? this.renderHeader() : null}
-                ${this.errorMsg ? html`Error: ${this.errorMsg}` : null}
-                ${!this.errorMsg ? this.renderCard() : null}
+                ${errorMsg ? html`Error: ${errorMsg}` : null}
+                ${!errorMsg ? this.renderCard() : null}
             </section>
         `;
     }
@@ -77,25 +77,11 @@ export class GithubRepoList extends LitElement {
     }
 
     private renderCard() {
-        return this.results && this.results.total_count > 0 ? this.results.items.map(repository =>
+        const results = this.githubController.results;
+        return results && results.total_count > 0 ? results.items.map(repository =>
             html`
                 <virtua-repo-card .repository='${repository}'></virtua-repo-card>
             `) : 'No repositories found.';
-    }
-
-    private async performQuery() {
-        if (this.query) {
-            const response = await fetch(`${this.url}?q=${this.query}`);
-            if (response.ok) {
-                this.errorMsg = null;
-                this.results = await response.json();
-            } else {
-                this.errorMsg = `${response.status} ${response.statusText}`;
-            }
-            this.requestUpdate();
-        } else {
-            this.results = null;
-        }
     }
 
     // preserve "this"

@@ -46,7 +46,7 @@ export class GithubRepoList extends LitElement {
 
     protected render() {
         return html`
-            <section class='card'>  
+            <section class='card'>
                 ${this.results && this.results.total_count > 0 ? this.results.items.map(repository =>
             html`<div>${repository.name}</div>`) : 'No repositories found.'}
             </section>               
