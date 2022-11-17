@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "es-dev-server --app-index /src/index.html --node-resolve --watch --open --base-path src",
-    "start:compatibility": "es-dev-server --compatibility all --app-index /src/index.html --node-resolve --watch --open --base-path src",
+    "start": "wds --app-index /src/index.html --node-resolve --watch --open --base-path /src/index.html",
+    "start:compatibility": "wds --compatibility all --app-index /src/index.html --node-resolve --watch --open --base-path src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kito D. Mann (virtua.tech)",
@@ -14,6 +14,7 @@
     "lit": "^2.4.1"
   },
   "devDependencies": {
+    "@web/dev-server": "^0.1.35",
     "es-dev-server": "^1.57.5",
     "typescript": "^4.0.3"
   }

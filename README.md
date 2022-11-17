@@ -28,7 +28,7 @@ compiler watches your file for changes. You can either configure this in your ed
 tsc --watch
 ```
 
-This project uses the [ES6 Development Server](https://open-wc.org/developing/es-dev-server.html) for local development. 
+This project uses the [Web Dev Server](https://modern-web.dev/docs/dev-server/overview/) for local development. 
 This provides the added benefit of translating bare Node-style modules to ES6 Modules for consumption by the browser, 
 as well as other features.
 
