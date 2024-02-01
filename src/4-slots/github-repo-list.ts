@@ -44,6 +44,7 @@ export class GithubRepoList extends LitElement {
     errorMsg: string | null = null;
 
     private _query: string | null = null;
+    private topicsChangedListener = (event: Event) => this.filter(event);
 
     connectedCallback() {
         super.connectedCallback();
@@ -92,9 +93,6 @@ export class GithubRepoList extends LitElement {
             this.results = null;
         }
     }
-
-    // preserve "this"
-    private topicsChangedListener = (event: Event) => this.filter(event);
 
     private filter(event: Event) {
         const topics = (event as TopicsChangedEvent).detail;

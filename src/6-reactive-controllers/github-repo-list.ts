@@ -46,6 +46,7 @@ export class GithubRepoList extends LitElement {
 
     private githubController = new GithubFetchController(this, this.url)
     private _query: string | null = null;
+    private topicsChangedListener = (event: Event) => this.filter(event);
 
     connectedCallback() {
         super.connectedCallback();
@@ -83,9 +84,6 @@ export class GithubRepoList extends LitElement {
                 <virtua-repo-card .repository='${repository}'></virtua-repo-card>
             `) : 'No repositories found.';
     }
-
-    // preserve "this"
-    private topicsChangedListener = (event: Event) => this.filter(event);
 
     private filter(event: Event) {
         const topics = (event as TopicsChangedEvent).detail;

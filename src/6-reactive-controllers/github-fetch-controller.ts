@@ -1,6 +1,10 @@
 import {ReactiveController, ReactiveControllerHost} from 'lit';
 import {RepositoryResults} from "./github-model";
 
+/**
+ Example of using a Reactive Controller (https://lit.dev/docs/composition/controllers/) to fetch data.
+ Another option is to use an Async Task https://lit.dev/docs/data/task/.
+*/
 export class GithubFetchController implements ReactiveController {
 
     get results(): RepositoryResults | null {
