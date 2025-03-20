@@ -48,4 +48,4 @@ No tests are currently in this project, but there are several options for testin
 
 ## Contact
 
-You can find me @kito99 on Twitter or at https://virtua.tech.
+Check out https://kitomann.com for more information about the author, and links to social networks.
