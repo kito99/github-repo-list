@@ -9,6 +9,10 @@ Sample application for Kito Mann's [Future-proof your Web Apps with Web Componen
 
 ## Setup
 
+This project requires [Node](https://nodejs.org) for building.
+See [.nvmrc](.nvmrc) for the expected version.
+(If you're using [nvm](https://github.com/nvm-sh/nvm), you can just run `nvm use` to switch to the correct version)/
+
 First, make sure you have TypeScript installed globally.
 
 ```
