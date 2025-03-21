@@ -13,27 +13,28 @@ This project requires [Node](https://nodejs.org) for building.
 See [.nvmrc](.nvmrc) for the expected version.
 (If you're using [nvm](https://github.com/nvm-sh/nvm), you can just run `nvm use` to switch to the correct version)/
 
-First, make sure you have TypeScript installed globally.
-
-```
-npm install -g typescript
-```
-
-Next, install the dependencies.
+Once you have the correct version of Node installed, just install the dependencies.
 
 npm install     
 
 ## Development
 
-Since this project uses TypeScript, you need to compile your code first. If you want fast feedback, make sure the TypeScript 
-compiler watches your file for changes. You can either configure this in your editor/IDE, or just do it on the command line:
+Since this project uses TypeScript, you need to compile your code first.
+If you want fast feedback, have TypeScript watch for changes:
 
 ```
-tsc --watch
+npm run watch
+```
+
+If you just want to build once, use:
+
+
+```
+npm run build
 ```
 
 This project uses the [Web Dev Server](https://modern-web.dev/docs/dev-server/overview/) for local development. 
-This provides the added benefit of translating bare Node-style modules to ES6 Modules for consumption by the browser, 
+This provides the added benefit of translating bare Node-style modules to ES Modules for consumption by the browser, 
 as well as other features.
 
 To run the development server, run:

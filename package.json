@@ -3,6 +3,8 @@
   "version": "2.0.0",
   "description": "Example application showing use of Lit and Web Components.",
   "scripts": {
+    "watch": "npx tsc --watch",
+    "build": "npx tsc --build --clean",
     "start": "wds --app-index /src/index.html --node-resolve --watch --open --base-path /src/index.html",
     "start:compatibility": "wds --compatibility all --app-index /src/index.html --node-resolve --watch --open --base-path src",
     "test": "echo \"Error: no test specified\" && exit 1"
