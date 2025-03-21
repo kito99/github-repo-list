@@ -22,12 +22,26 @@ class MyLitElement extends LitElement {
 
     render() {
         return html`
-      <p>prop1: ${this.prop1}</p>
-      <p>prop2: ${this.prop2}</p>
-      <p>prop3: ${this.prop3}</p>
-      <p>prop4[0]: ${this.prop4[0]}</p>
-      <p>prop5.subprop1: ${this.prop5.subprop1}</p>
+      <div>prop1: ${this.prop1}</div>
+      <div>prop2: ${this.prop2}</div>
+      <div>prop3: ${this.prop3}</div>
+      <div>prop4[0]: ${this.prop4[0]}</div>
+      <div>prop5.subprop1: ${this.prop5.subprop1}</div>
     `;
+    }
+
+    connectedCallback() {
+        super.connectedCallback();
+        console.log('MyWebComponent added to page.');
+    }
+
+    disconnectedCallback() {
+        super.disconnectedCallback();
+        console.log('MyWebComponent removed from page.');
+    }
+
+    adoptedCallback() {
+        console.log('MyWebComponent moved to new page.');
     }
 }
 

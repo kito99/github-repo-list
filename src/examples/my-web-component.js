@@ -16,24 +16,24 @@ class MyWebComponent extends HTMLElement {
 
     render() {
         this.mainDiv.innerHTML = `
-              <p>foo: ${this.getAttribute('foo')}</p>
-              <p>bar: ${this.bar}</p>`;
+              <div>foo: ${this.getAttribute('foo')}</div>
+              <div>bar: ${this.bar}</div>`;
     }
 
     connectedCallback() {
-        console.log('Custom square element added to page.');
+        console.log('MyWebComponent added to page.');
     }
 
     disconnectedCallback() {
-        console.log('Custom square element removed from page.');
+        console.log('MyWebComponent removed from page.');
     }
 
     adoptedCallback() {
-        console.log('Custom square element moved to new page.');
+        console.log('MyWebComponent moved to new page.');
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        console.log('Custom square element attributes changed:', name, oldValue, newValue);
+        console.log('MyWebComponent attributes changed:', name, oldValue, newValue);
         this[name] = newValue;
         this.render();
     }

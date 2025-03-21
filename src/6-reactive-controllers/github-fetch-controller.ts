@@ -30,10 +30,6 @@ export class GithubFetchController implements ReactiveController {
        this.performQuery();
     }
 
-    hostDisconnected() {
-        // Clear the timer when the host is disconnected
-    }
-
     public async performQuery() {
         if (this.query) {
             const response = await fetch(`${this.url}?q=${this.query}`);

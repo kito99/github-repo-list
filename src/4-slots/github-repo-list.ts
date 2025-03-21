@@ -28,16 +28,14 @@ export class GithubRepoList extends LitElement {
     @property({type: String, reflect: true})
     url = 'https://api.github.com/search/repositories';
 
-    @property({type: String, reflect: true})
     get query(): string | null {
         return this._query;
     }
 
+    @property({type: String, reflect: true})
     set query(query: string | null) {
-        const oldValue = this._query;
         this._query = query;
         this.performQuery();
-        this.requestUpdate('query', oldValue);
     }
 
     results: RepositoryResults | null = null;

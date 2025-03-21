@@ -23,20 +23,10 @@ export class RepoFilter extends LitElement {
     label = 'Filter by topic(s):';
 
     @property({type: Array, reflect: true, converter: new CommaSeparatedStringToArrayConverter()})
-    get topics() {
-        return this._topics;
-    }
-
-    set topics(topics: string[]) {
-        const oldValue = this._topics;
-        this._topics = topics;
-        this.requestUpdate('topics', oldValue)
-    }
+    topics: string[] = [];
 
     @property({type: String, reflect: true, converter: new CommaSeparatedStringToArrayConverter()})
     selectedTopics: string[] = [];
-
-    private _topics: string[] = [];
 
     connectedCallback() {
         super.connectedCallback();
@@ -46,7 +36,7 @@ export class RepoFilter extends LitElement {
     protected render() {
         return html`
             <div>
-                <label>Choose a topic:</label>
+                <label>${this.label}</label>
             </div>        
             ${this.topics.map(
             topic => html`

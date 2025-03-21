@@ -20,7 +20,7 @@ export class RepoCard extends LitElement {
                   display: block;
                   margin-bottom: 10px;
                   font-size: var(--card-header-font-size, 14pt);       
-                  font-family: var(--card-header-font-famliy);
+                  font-family: var(--card-header-font-family);
                 }         
                 header h1 {
                   font-size: var(--card-header-title-font-size, 18pt);
